@@ -38,7 +38,7 @@ const navToHelper = () => {
 <style lang="less" scoped>
 @import '@/style/variables.less';
 .login-header {
-  height: 64px;
+  height: 60px;
   padding: 0 24px;
   display: flex;
   justify-content: space-between;
@@ -48,7 +48,7 @@ const navToHelper = () => {
 
   .logo {
     width: 188px;
-    height: 64px;
+    height: 60px;
   }
 
   .operations-container {

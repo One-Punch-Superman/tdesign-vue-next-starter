@@ -3,7 +3,6 @@
     v-if="settingStore.showSidebar"
     :show-logo="settingStore.showSidebarLogo"
     :layout="settingStore.layout"
-    :is-fixed="settingStore.isSidebarFixed"
     :menu="sideMenu"
     :theme="settingStore.mode"
     :is-compact="settingStore.isSidebarCompact"

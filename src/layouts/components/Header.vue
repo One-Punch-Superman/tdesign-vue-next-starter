@@ -9,14 +9,20 @@
           <t-button theme="default" shape="square" variant="text" @click="changeCollapsed">
             <t-icon class="collapsed-icon" name="view-list" />
           </t-button>
-          <search :layout="layout" />
+        </div>
+        <div v-if="settingStore.layout=='mix' && !settingStore.splitMenu" class="header-operate-left">
+          <t-button theme="default" shape="square" variant="text" @click="changeCollapsed">
+            <t-icon class="collapsed-icon" name="view-list" />
+          </t-button>
         </div>
       </template>
       <menu-content v-show="layout !== 'side'" class="header-menu" :nav-data="menu" />
+      <l-breadcrumb v-if="settingStore.showBreadcrumb && (settingStore.layout == 'side'|| settingStore.layout == 'mix' && !settingStore.splitMenu)" />
+      
       <template #operations>
         <div class="operations-container">
           <!-- 搜索框 -->
-          <search v-if="layout !== 'side'" :layout="layout" />
+          <search :layout="layout" />
 
           <!-- 全局通知 -->
           <notice />
@@ -72,6 +78,7 @@ import { prefix } from '@/config/global';
 import LogoFull from '@/assets/assets-logo-full.svg?component';
 import { MenuRoute } from '@/types/interface';
 
+import LBreadcrumb from './Breadcrumb.vue';
 import Notice from './Notice.vue';
 import Search from './Search.vue';
 import MenuContent from './MenuContent.vue';
@@ -158,7 +165,7 @@ const navToHelper = () => {
 @import '@/style/variables.less';
 .@{starter-prefix}-header {
   &-layout {
-    height: 64px;
+    height: 60px;
   }
 
   &-menu-fixed {
@@ -181,7 +188,7 @@ const navToHelper = () => {
   &-logo-container {
     cursor: pointer;
     display: inline-flex;
-    height: 64px;
+    height: 60px;
   }
 }
 .header-menu {
@@ -263,6 +270,7 @@ const navToHelper = () => {
 
 :deep(.t-head-menu__inner) {
   border-bottom: 1px solid var(--td-border-level-1-color);
+  border-left: 1px solid var(--td-border-level-1-color);
 }
 
 .t-menu--light {
@@ -273,6 +281,7 @@ const navToHelper = () => {
 .t-menu--dark {
   .t-head-menu__inner {
     border-bottom: 1px solid var(--td-gray-color-10);
+    border-left: 1px solid var(--td-gray-color-10);
   }
   .header-user-account {
     color: rgba(255, 255, 255, 0.55);

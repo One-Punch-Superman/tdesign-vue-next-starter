@@ -41,10 +41,6 @@ const props = defineProps({
     type: Boolean as PropType<boolean>,
     default: true,
   },
-  isFixed: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
   layout: {
     type: String as PropType<string>,
     default: '',
@@ -85,13 +81,12 @@ const sideNavCls = computed(() => {
 });
 
 const menuCls = computed(() => {
-  const { showLogo, isFixed, layout } = props;
+  const { showLogo, layout } = props;
   return [
     `${prefix}-side-nav`,
     {
       [`${prefix}-side-nav-no-logo`]: !showLogo,
-      [`${prefix}-side-nav-no-fixed`]: !isFixed,
-      [`${prefix}-side-nav-mix-fixed`]: layout === 'mix' && isFixed,
+      [`${prefix}-side-nav-mix-fixed`]: layout === 'mix',
     },
   ];
 });

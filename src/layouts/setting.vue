@@ -1,7 +1,7 @@
 <template>
   <t-drawer
     v-model:visible="showSettingPanel"
-    size="408px"
+    size="380px"
     :footer="false"
     header="页面配置"
     :close-btn="true"
@@ -73,14 +73,7 @@
           <t-switch v-model="formData.splitMenu" />
         </t-form-item>
 
-        <t-form-item v-show="formData.layout === 'mix'" label="固定 Sidebar" name="isSidebarFixed">
-          <t-switch v-model="formData.isSidebarFixed" />
-        </t-form-item>
-
         <div class="setting-group-title">元素开关</div>
-        <t-form-item v-show="formData.layout === 'side'" label="显示 Header" name="showHeader">
-          <t-switch v-model="formData.showHeader" />
-        </t-form-item>
         <t-form-item label="显示 Breadcrumbs" name="showBreadcrumb">
           <t-switch v-model="formData.showBreadcrumb" />
         </t-form-item>
@@ -113,16 +106,14 @@ import { insertThemeStylesheet, generateColorMap } from '@/config/color';
 
 import SettingDarkIcon from '@/assets/assets-setting-dark.svg';
 import SettingLightIcon from '@/assets/assets-setting-light.svg';
-import SettingAutoIcon from '@/assets/assets-setting-auto.svg';
 
 const settingStore = useSettingStore();
 
 const LAYOUT_OPTION = ['side', 'top', 'mix'];
-const COLOR_OPTIONS = ['default', 'cyan', 'green', 'yellow', 'orange', 'red', 'pink', 'purple', 'dynamic'];
+const COLOR_OPTIONS = ['default', 'cyan', 'green', 'red', 'pink', 'purple', 'dynamic'];
 const MODE_OPTIONS = [
   { type: 'light', text: '明亮' },
   { type: 'dark', text: '暗黑' },
-  { type: 'auto', text: '跟随系统' },
 ];
 const initStyleConfig = () => {
   const styleConfig = STYLE_CONFIG;
@@ -194,7 +185,6 @@ const getModeIcon = (mode: string) => {
   if (mode === 'dark') {
     return SettingDarkIcon;
   }
-  return SettingAutoIcon;
 };
 
 const handleCloseDrawer = () => {
@@ -299,7 +289,7 @@ watchEffect(() => {
   :deep(.t-radio-group.t-size-m) {
     min-height: 32px;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
 
