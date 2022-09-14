@@ -2,20 +2,20 @@
   <div>
     <template v-if="setting.layout.value === 'side'">
       <t-layout key="side" :class="mainLayoutCls">
-        <t-aside><layout-side-nav /></t-aside>
+        <t-aside><layout-aside /></t-aside>
         <t-layout>
           <t-header><layout-header /></t-header>
-          <t-content><layout-content /></t-content>
+          <t-content><layout-main /></t-content>
         </t-layout>
       </t-layout>
     </template>
 
     <template v-else>
       <t-layout key="no-side">
-        <t-header><layout-header /> </t-header>
+        <t-header><layout-header /></t-header>
         <t-layout :class="mainLayoutCls">
-          <layout-side-nav />
-          <layout-content />
+          <layout-aside />
+          <layout-main />
         </t-layout>
       </t-layout>
     </template>
@@ -30,9 +30,9 @@ import { useRoute } from 'vue-router';
 import { useSettingStore, useTabsRouterStore } from '@/store';
 
 import SettingCom from './setting.vue';
-import LayoutHeader from './components/LayoutHeader.vue';
-import LayoutContent from './components/LayoutContent.vue';
-import LayoutSideNav from './components/LayoutSideNav.vue';
+import LayoutHeader from '@/layout/header/index.vue';
+import LayoutAside from '@/layout/aside/index.vue';
+import LayoutMain from '@/layout/main/index.vue';
 
 import { prefix } from '@/config/global';
 
@@ -73,35 +73,35 @@ watch(
 </script>
 
 <style lang="less">
-.t-layout__header{
-height: 60px;
-}
-.t-head-menu__inner{
+.t-layout__header {
   height: 60px;
 }
-.t-default-menu__inner .t-menu__logo:not(:empty){
+.t-head-menu__inner {
   height: 60px;
 }
-.t-head-menu .t-menu__operations:not(:empty){
+.t-default-menu__inner .t-menu__logo:not(:empty) {
+  height: 60px;
+}
+.t-head-menu .t-menu__operations:not(:empty) {
   height: 60px;
   line-height: 60px;
 }
-.tdesign-starter-side-nav-mix-fixed{
+.tdesign-starter-side-nav-mix-fixed {
   top: 60px;
 }
 .t-tabs__nav-item.t-size-m {
-    height: 35px;
-    line-height: 35px;
-    font-size: 12px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 12px;
 }
 .t-tabs__btn.t-size-m {
   height: 35px;
-    line-height: 35px;
+  line-height: 35px;
 }
 .t-tabs__nav--card.t-tabs__nav-item {
-    border-left: 1px solid #e7e7e7 !important;
+  border-left: 1px solid #e7e7e7 !important;
 }
-.t-default-menu__inner .t-menu__logo:not(:empty){
+.t-default-menu__inner .t-menu__logo:not(:empty) {
   border-bottom: 1px solid #fff;
 }
 </style>

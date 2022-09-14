@@ -33,7 +33,7 @@ import { ref } from 'vue';
 import Login from './components/Login.vue';
 import Register from './components/Register.vue';
 import LoginHeader from './components/Header.vue';
-import TdesignSetting from '@/layouts/setting.vue';
+import TdesignSetting from '@/layout/setting.vue';
 
 const type = ref('login');
 const switchType = (val: string) => {

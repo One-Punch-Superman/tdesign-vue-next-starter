@@ -23,12 +23,12 @@ const defaultRouterList: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/pages/login/index.vue'),
+    component: () => import('@/views/login/index.vue'),
   },
   {
     path: '/',
     redirect: '/dashboard/base',
-    component: () => import('@/layouts/blank.vue'),
+    component: () => import('@/layout/blank.vue'),
   },
   {
     path: '/:w+',

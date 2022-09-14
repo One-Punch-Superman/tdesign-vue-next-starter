@@ -10,15 +10,20 @@
             <t-icon class="collapsed-icon" name="view-list" />
           </t-button>
         </div>
-        <div v-if="settingStore.layout=='mix' && !settingStore.splitMenu" class="header-operate-left">
+        <div v-if="settingStore.layout == 'mix' && !settingStore.splitMenu" class="header-operate-left">
           <t-button theme="default" shape="square" variant="text" @click="changeCollapsed">
             <t-icon class="collapsed-icon" name="view-list" />
           </t-button>
         </div>
       </template>
       <menu-content v-show="layout !== 'side'" class="header-menu" :nav-data="menu" />
-      <l-breadcrumb v-if="settingStore.showBreadcrumb && (settingStore.layout == 'side'|| settingStore.layout == 'mix' && !settingStore.splitMenu)" />
-      
+      <l-breadcrumb
+        v-if="
+          settingStore.showBreadcrumb &&
+          (settingStore.layout == 'side' || (settingStore.layout == 'mix' && !settingStore.splitMenu))
+        "
+      />
+
       <template #operations>
         <div class="operations-container">
           <!-- 搜索框 -->
@@ -81,7 +86,7 @@ import { MenuRoute } from '@/types/interface';
 import LBreadcrumb from './Breadcrumb.vue';
 import Notice from './Notice.vue';
 import Search from './Search.vue';
-import MenuContent from './MenuContent.vue';
+import MenuContent from '../aside/MenuContent.vue';
 
 const props = defineProps({
   theme: {

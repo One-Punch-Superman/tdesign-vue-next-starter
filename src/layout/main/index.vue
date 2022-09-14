@@ -53,7 +53,13 @@
       </t-tab-panel>
     </t-tabs>
     <t-content :class="`${prefix}-content-layout`">
-      <l-breadcrumb v-if="settingStore.showBreadcrumb && (settingStore.layout == 'top'|| settingStore.layout == 'mix' && settingStore.splitMenu)" style="margin-bottom: 18px;" />
+      <l-breadcrumb
+        v-if="
+          settingStore.showBreadcrumb &&
+          (settingStore.layout == 'top' || (settingStore.layout == 'mix' && settingStore.splitMenu))
+        "
+        style="margin-bottom: 18px"
+      />
       <l-content />
     </t-content>
     <t-footer v-if="settingStore.showFooter" :class="`${prefix}-footer-layout`">
@@ -70,7 +76,7 @@ import { prefix } from '@/config/global';
 import { TRouterInfo } from '@/types/interface';
 
 import LContent from './Content.vue';
-import LBreadcrumb from './Breadcrumb.vue';
+import LBreadcrumb from '../header/Breadcrumb.vue';
 import LFooter from './Footer.vue';
 
 const route = useRoute();

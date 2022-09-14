@@ -1,4 +1,4 @@
-import Layout from '@/layouts/index.vue';
+import Layout from '@/layout/index.vue';
 import LogoutIcon from '@/assets/assets-slide-logout.svg';
 
 export default [
@@ -12,7 +12,7 @@ export default [
       {
         path: 'index',
         name: 'UserIndex',
-        component: () => import('@/pages/user/index.vue'),
+        component: () => import('@/views/user/index.vue'),
         meta: { title: '个人中心' },
       },
     ],
@@ -22,12 +22,12 @@ export default [
     name: 'loginRedirect',
     redirect: '/login',
     meta: { title: '登录页', icon: LogoutIcon },
-    component: () => import('@/layouts/blank.vue'),
+    component: () => import('@/layout/blank.vue'),
     children: [
       {
         path: 'index',
         redirect: '/login',
-        component: () => import('@/layouts/blank.vue'),
+        component: () => import('@/layout/blank.vue'),
         meta: { title: '登录中心' },
       },
     ],

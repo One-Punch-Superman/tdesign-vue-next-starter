@@ -1,4 +1,4 @@
-import Layout from '@/layouts/index.vue';
+import Layout from '@/layout/index.vue';
 import ListIcon from '@/assets/assets-slide-list.svg';
 import FormIcon from '@/assets/assets-slide-form.svg';
 import DetailIcon from '@/assets/assets-slide-detail.svg';
@@ -14,25 +14,25 @@ export default [
       {
         path: 'base',
         name: 'ListBase',
-        component: () => import('@/pages/list/base/index.vue'),
+        component: () => import('@/views/list/base/index.vue'),
         meta: { title: '基础列表页' },
       },
       {
         path: 'card',
         name: 'ListCard',
-        component: () => import('@/pages/list/card/index.vue'),
+        component: () => import('@/views/list/card/index.vue'),
         meta: { title: '卡片列表页' },
       },
       {
         path: 'filter',
         name: 'ListFilter',
-        component: () => import('@/pages/list/filter/index.vue'),
+        component: () => import('@/views/list/filter/index.vue'),
         meta: { title: '筛选列表页' },
       },
       {
         path: 'tree',
         name: 'ListTree',
-        component: () => import('@/pages/list/tree/index.vue'),
+        component: () => import('@/views/list/tree/index.vue'),
         meta: { title: '树状筛选列表页' },
       },
     ],
@@ -47,13 +47,13 @@ export default [
       {
         path: 'base',
         name: 'FormBase',
-        component: () => import('@/pages/form/base/index.vue'),
+        component: () => import('@/views/form/base/index.vue'),
         meta: { title: '基础表单页' },
       },
       {
         path: 'step',
         name: 'FormStep',
-        component: () => import('@/pages/form/step/index.vue'),
+        component: () => import('@/views/form/step/index.vue'),
         meta: { title: '分步表单页' },
       },
     ],
@@ -68,25 +68,25 @@ export default [
       {
         path: 'base',
         name: 'DetailBase',
-        component: () => import('@/pages/detail/base/index.vue'),
+        component: () => import('@/views/detail/base/index.vue'),
         meta: { title: '基础详情页' },
       },
       {
         path: 'advanced',
         name: 'DetailAdvanced',
-        component: () => import('@/pages/detail/advanced/index.vue'),
+        component: () => import('@/views/detail/advanced/index.vue'),
         meta: { title: '多卡片详情页' },
       },
       {
         path: 'deploy',
         name: 'DetailDeploy',
-        component: () => import('@/pages/detail/deploy/index.vue'),
+        component: () => import('@/views/detail/deploy/index.vue'),
         meta: { title: '数据详情页' },
       },
       {
         path: 'secondary',
         name: 'DetailSecondary',
-        component: () => import('@/pages/detail/secondary/index.vue'),
+        component: () => import('@/views/detail/secondary/index.vue'),
         meta: { title: '二级详情页' },
       },
     ],
@@ -101,49 +101,49 @@ export default [
       {
         path: 'success',
         name: 'ResultSuccess',
-        component: () => import('@/pages/result/success/index.vue'),
+        component: () => import('@/views/result/success/index.vue'),
         meta: { title: '成功页' },
       },
       {
         path: 'fail',
         name: 'ResultFail',
-        component: () => import('@/pages/result/fail/index.vue'),
+        component: () => import('@/views/result/fail/index.vue'),
         meta: { title: '失败页' },
       },
       {
         path: 'network-error',
         name: 'ResultNetworkError',
-        component: () => import('@/pages/result/network-error/index.vue'),
+        component: () => import('@/views/result/network-error/index.vue'),
         meta: { title: '网络异常' },
       },
       {
         path: '403',
         name: 'Result403',
-        component: () => import('@/pages/result/403/index.vue'),
+        component: () => import('@/views/result/403/index.vue'),
         meta: { title: '无权限' },
       },
       {
         path: '404',
         name: 'Result404',
-        component: () => import('@/pages/result/404/index.vue'),
+        component: () => import('@/views/result/404/index.vue'),
         meta: { title: '访问页面不存在页' },
       },
       {
         path: '500',
         name: 'Result500',
-        component: () => import('@/pages/result/500/index.vue'),
+        component: () => import('@/views/result/500/index.vue'),
         meta: { title: '服务器出错页' },
       },
       {
         path: 'browser-incompatible',
         name: 'ResultBrowserIncompatible',
-        component: () => import('@/pages/result/browser-incompatible/index.vue'),
+        component: () => import('@/views/result/browser-incompatible/index.vue'),
         meta: { title: '浏览器不兼容页' },
       },
       {
         path: 'maintenance',
         name: 'ResultMaintenance',
-        component: () => import('@/pages/result/maintenance/index.vue'),
+        component: () => import('@/views/result/maintenance/index.vue'),
         meta: { title: '系统维护页' },
       },
     ],

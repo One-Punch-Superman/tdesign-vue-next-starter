@@ -32,5 +32,4 @@ const crumbs = computed(() => {
   return breadcrumbs;
 });
 </script>
-<style scoped>
-</style>
+<style scoped></style>
