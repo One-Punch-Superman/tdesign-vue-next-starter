@@ -17,12 +17,10 @@
         </div>
       </template>
       <menu-content v-show="layout !== 'side'" class="header-menu" :nav-data="menu" />
-      <l-breadcrumb
-        v-if="
-          settingStore.showBreadcrumb &&
-          (settingStore.layout == 'side' || (settingStore.layout == 'mix' && !settingStore.splitMenu))
-        "
-      />
+      <l-breadcrumb v-if="
+        settingStore.showBreadcrumb &&
+        (settingStore.layout == 'side' || (settingStore.layout == 'mix' && !settingStore.splitMenu))
+      " />
 
       <template #operations>
         <div class="operations-container">
@@ -168,6 +166,7 @@ const navToHelper = () => {
 </script>
 <style lang="less" scoped>
 @import '@/style/variables.less';
+
 .@{starter-prefix}-header {
   &-layout {
     height: 60px;
@@ -184,6 +183,7 @@ const navToHelper = () => {
       z-index: 10;
       width: auto;
       transition: all 0.3s;
+
       &-compact {
         left: 64px;
       }
@@ -196,6 +196,7 @@ const navToHelper = () => {
     height: 60px;
   }
 }
+
 .header-menu {
   flex: 1 1 1;
   display: inline-flex;
@@ -219,6 +220,7 @@ const navToHelper = () => {
 
   .t-button {
     margin: 0 8px;
+
     &.header-user-btn {
       margin: 0;
     }
@@ -226,6 +228,7 @@ const navToHelper = () => {
 
   .t-icon {
     font-size: 20px;
+
     &.general {
       margin-right: 16px;
     }
@@ -253,6 +256,7 @@ const navToHelper = () => {
   .t-logo {
     width: 100%;
     height: 100%;
+
     &:hover {
       cursor: pointer;
     }
@@ -267,6 +271,7 @@ const navToHelper = () => {
   display: inline-flex;
   align-items: center;
   color: var(--td-text-color-primary);
+
   .t-icon {
     margin-left: 4px;
     font-size: 16px;
@@ -283,16 +288,20 @@ const navToHelper = () => {
     color: var(--td-text-color-primary);
   }
 }
+
 .t-menu--dark {
   .t-head-menu__inner {
     border-bottom: 1px solid var(--td-gray-color-10);
     border-left: 1px solid var(--td-gray-color-10);
   }
+
   .header-user-account {
     color: rgba(255, 255, 255, 0.55);
   }
+
   .t-button {
     --ripple-color: var(--td-gray-color-10) !important;
+
     &:hover {
       background: var(--td-gray-color-12) !important;
     }
@@ -313,6 +322,7 @@ const navToHelper = () => {
       display: flex;
       justify-content: center;
     }
+
     .t-dropdown__item__content__text {
       display: flex;
       align-items: center;
@@ -324,6 +334,7 @@ const navToHelper = () => {
     width: 100%;
     margin-bottom: 0px;
   }
+
   &:last-child {
     :deep(.t-dropdown__item) {
       margin-bottom: 8px;
