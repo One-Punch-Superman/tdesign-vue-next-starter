@@ -27,7 +27,6 @@
         </t-layout>
       </t-layout>
     </template>
-    <setting-com />
   </div>
 </template>
 
@@ -37,7 +36,6 @@ import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 import { useSettingStore, useTabsRouterStore } from '@/store';
 
-import SettingCom from './setting.vue';
 import LayoutHeader from '@/layout/header/index.vue';
 import LayoutAside from '@/layout/aside/index.vue';
 import LayoutMain from '@/layout/main/index.vue';

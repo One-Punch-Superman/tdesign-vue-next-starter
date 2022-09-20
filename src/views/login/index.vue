@@ -1,7 +1,8 @@
 <template>
   <div class="login-wrapper">
-    <login-header />
-
+    <header class="login-header">
+      <logo-full-icon class="logo" />
+    </header>
     <div class="login-container">
       <div class="title-container">
         <h1 class="title margin-no">登录到</h1>
@@ -16,7 +17,6 @@
 
       <login v-if="type === 'login'" />
       <register v-else @register-success="switchType('login')" />
-      <tdesign-setting />
     </div>
 
     <footer class="copyright">Copyright @ 2021-2022 Tencent. All Rights Reserved</footer>
@@ -32,8 +32,7 @@ import { ref } from 'vue';
 
 import Login from './components/Login.vue';
 import Register from './components/Register.vue';
-import LoginHeader from './components/Header.vue';
-import TdesignSetting from '@/layout/setting.vue';
+import LogoFullIcon from '@/assets/assets-logo-full.svg?component';
 
 const type = ref('login');
 const switchType = (val: string) => {
@@ -43,6 +42,21 @@ const switchType = (val: string) => {
 
 <style lang="less" scoped>
 @import '@/style/variables.less';
+
+.login-header {
+  height: 60px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  color: var(--td-text-color-primary);
+
+  .logo {
+    width: 188px;
+    height: 60px;
+  }
+}
 
 .light {
   &.login-wrapper {
