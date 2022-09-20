@@ -23,14 +23,8 @@
           </template>
         </t-alert>
       </div>
-      <t-form
-        v-show="activeForm === 0"
-        class="step-form"
-        :data="formData1"
-        :rules="FORM_RULES"
-        label-align="right"
-        @submit="(result) => onSubmit(result, 1)"
-      >
+      <t-form v-show="activeForm === 0" class="step-form" :data="formData1" :rules="FORM_RULES" label-align="right"
+        @submit="(result) => onSubmit(result, 1)">
         <t-form-item label="合同名称" name="name">
           <t-select v-model="formData1.name" :style="{ width: '480px' }" class="demo-select-base" clearable>
             <t-option v-for="(item, index) in NAME_OPTIONS" :key="index" :value="item.value" :label="item.label">
@@ -52,15 +46,8 @@
       </t-form>
 
       <!-- 分步表单2 -->
-      <t-form
-        v-show="activeForm === 1"
-        class="step-form"
-        :data="formData2"
-        :rules="FORM_RULES"
-        label-align="left"
-        @reset="onReset(0)"
-        @submit="(result) => onSubmit(result, 2)"
-      >
+      <t-form v-show="activeForm === 1" class="step-form" :data="formData2" :rules="FORM_RULES" label-align="left"
+        @reset="onReset(0)" @submit="(result) => onSubmit(result, 2)">
         <t-form-item label="发票抬头" name="title">
           <t-input v-model="formData2.title" :style="{ width: '480px' }" placeholder="请输入发票抬头" />
         </t-form-item>
@@ -89,15 +76,8 @@
       </t-form>
 
       <!-- 分步表单3 -->
-      <t-form
-        v-show="activeForm === 2"
-        class="step-form"
-        :data="formData3"
-        :rules="FORM_RULES"
-        label-align="left"
-        @reset="onReset(1)"
-        @submit="(result) => onSubmit(result, 6)"
-      >
+      <t-form v-show="activeForm === 2" class="step-form" :data="formData3" :rules="FORM_RULES" label-align="left"
+        @reset="onReset(1)" @submit="(result) => onSubmit(result, 6)">
         <t-form-item label="收货人" name="consignee">
           <t-input v-model="formData3.consignee" :style="{ width: '480px' }" placeholder="请输入收货人" />
         </t-form-item>
@@ -105,13 +85,8 @@
           <t-input v-model="formData3.mobileNum" :style="{ width: '480px' }" placeholder="请输入手机号码" />
         </t-form-item>
         <t-form-item label="收货地址" name="deliveryAddress">
-          <t-select
-            v-model="formData3.deliveryAddress"
-            :style="{ width: '480px' }"
-            placeholder="请选择收货地址"
-            class="demo-select-base"
-            clearable
-          >
+          <t-select v-model="formData3.deliveryAddress" :style="{ width: '480px' }" placeholder="请选择收货地址"
+            class="demo-select-base" clearable>
             <t-option v-for="(item, index) in ADDRESS_OPTIONS" :key="index" :value="item.value" :label="item.label">
               {{ item.label }}
             </t-option>
@@ -194,5 +169,44 @@ const complete = () => {
 </script>
 
 <style lang="less" scoped>
-@import url('./index.less');
+@import '@/style/variables';
+
+.form-step-container {
+  background-color: var(--td-bg-color-container);
+
+  .t-card {
+    padding: 8px;
+  }
+}
+
+.rule-tips {
+  margin: 8px 24px 0;
+}
+
+.step-container {
+  padding: 8px 24px 0;
+}
+
+.step-form {
+  padding: 24px;
+}
+
+.step-form-4 {
+  padding: 66px 0 90px 0;
+  text-align: center;
+
+  >.t-icon {
+    margin-bottom: 16px;
+  }
+
+  >.text {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  >.button-group {
+    margin-top: 32px;
+  }
+}
 </style>

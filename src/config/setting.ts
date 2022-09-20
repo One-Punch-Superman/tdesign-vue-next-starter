@@ -9,6 +9,4 @@ export default {
   isHeaderFixed: true, // 头部是否固定
   showFooter: true, // 是否展示Footer
   isUseTabsRouter: false, // 是否使用多标签页功能
-
-  isSidebarCompact: false, // 是否收缩sideBar
 };

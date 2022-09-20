@@ -6,6 +6,7 @@ import { store } from '@/store';
 
 const state = {
   ...STYLE_CONFIG,
+  isSidebarCompact: false, // 是否收缩sideBar
   showSettingPanel: false,
   colorList: COLOR_TOKEN,
   chartColors: LIGHT_CHART_COLORS,
@@ -33,7 +34,6 @@ export const useSettingStore = defineStore('setting', {
   actions: {
     async changeMode(mode: 'dark' | 'light' | 'auto') {
       let theme = mode;
-
       if (mode === 'auto') {
         const media = window.matchMedia('(prefers-color-scheme:dark)');
         if (media.matches) {

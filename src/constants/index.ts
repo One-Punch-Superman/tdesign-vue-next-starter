@@ -33,10 +33,3 @@ export const CONTRACT_PAYMENT_TYPES = {
   PAYMENT: 0,
   RECEIPT: 1,
 };
-
-// 通知的优先级对应的TAG类型
-export const NOTIFICATION_TYPES = {
-  low: 'primary',
-  middle: 'warning',
-  high: 'danger',
-};

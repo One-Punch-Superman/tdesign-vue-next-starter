@@ -1,14 +1,6 @@
 <template>
-  <t-form
-    ref="form"
-    class="base-form"
-    :data="formData"
-    :rules="FORM_RULES"
-    label-align="top"
-    :label-width="100"
-    @reset="onReset"
-    @submit="onSubmit"
-  >
+  <t-form ref="form" class="base-form" :data="formData" :rules="FORM_RULES" label-align="top" :label-width="100"
+    @reset="onReset" @submit="onSubmit">
     <div class="form-basic-container">
       <div class="form-basic-item">
         <div class="form-basic-container-title">合同信息</div>
@@ -23,13 +15,8 @@
           </t-col>
           <t-col :span="6">
             <t-form-item label="合同类型" name="type">
-              <t-select
-                v-model="formData.type"
-                :style="{ width: '322px' }"
-                placeholder="请选择类型"
-                class="demo-select-base"
-                clearable
-              >
+              <t-select v-model="formData.type" :style="{ width: '322px' }" placeholder="请选择类型" class="demo-select-base"
+                clearable>
                 <t-option v-for="(item, index) in TYPE_OPTIONS" :key="index" :value="item.value" :label="item.label">
                   {{ item.label }}
                 </t-option>
@@ -53,13 +40,8 @@
 
           <t-col :span="6">
             <t-form-item label="甲方" name="partyA">
-              <t-select
-                v-model="formData.partyA"
-                :style="{ width: '322px' }"
-                class="demo-select-base"
-                placeholder="请选择类型"
-                clearable
-              >
+              <t-select v-model="formData.partyA" :style="{ width: '322px' }" class="demo-select-base"
+                placeholder="请选择类型" clearable>
                 <t-option v-for="(item, index) in PARTY_A_OPTIONS" :key="index" :value="item.value" :label="item.label">
                   {{ item.label }}
                 </t-option>
@@ -68,13 +50,8 @@
           </t-col>
           <t-col :span="6">
             <t-form-item label="乙方" name="partyB">
-              <t-select
-                v-model="formData.partyB"
-                :style="{ width: '322px' }"
-                placeholder="请选择类型"
-                class="demo-select-base"
-                clearable
-              >
+              <t-select v-model="formData.partyB" :style="{ width: '322px' }" placeholder="请选择类型"
+                class="demo-select-base" clearable>
                 <t-option v-for="(item, index) in PARTY_B_OPTIONS" :key="index" :value="item.value" :label="item.label">
                   {{ item.label }}
                 </t-option>
@@ -83,48 +60,28 @@
           </t-col>
           <t-col :span="6">
             <t-form-item label="合同签订日期" name="signDate">
-              <t-date-picker
-                v-model="formData.signDate"
-                :style="{ width: '322px' }"
-                theme="primary"
-                mode="date"
-                separator="/"
-              />
+              <t-date-picker v-model="formData.signDate" :style="{ width: '322px' }" theme="primary" mode="date"
+                separator="/" />
             </t-form-item>
           </t-col>
           <t-col :span="6">
             <t-form-item label="合同生效日期" name="startDate">
-              <t-date-picker
-                v-model="formData.startDate"
-                :style="{ width: '322px' }"
-                theme="primary"
-                mode="date"
-                separator="/"
-              />
+              <t-date-picker v-model="formData.startDate" :style="{ width: '322px' }" theme="primary" mode="date"
+                separator="/" />
             </t-form-item>
           </t-col>
           <t-col :span="6">
             <t-form-item label="合同结束日期" name="endDate">
-              <t-date-picker
-                v-model="formData.endDate"
-                :style="{ width: '322px' }"
-                theme="primary"
-                mode="date"
-                separator="/"
-              />
+              <t-date-picker v-model="formData.endDate" :style="{ width: '322px' }" theme="primary" mode="date"
+                separator="/" />
             </t-form-item>
           </t-col>
           <t-col :span="6">
             <t-form-item label="" name="files">
-              <t-upload
-                v-model="formData.files"
+              <t-upload v-model="formData.files"
                 action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
-                tips="请上传pdf文件，大小在60M以内"
-                :size-limit="{ size: 60, unit: 'MB' }"
-                :format-response="formatResponse"
-                :before-upload="beforeUpload"
-                @fail="handleFail"
-              >
+                tips="请上传pdf文件，大小在60M以内" :size-limit="{ size: 60, unit: 'MB' }" :format-response="formatResponse"
+                :before-upload="beforeUpload" @fail="handleFail">
                 <t-button class="form-submit-upload-btn" variant="outline"> 上传合同文件 </t-button>
               </t-upload>
             </t-form-item>
@@ -199,5 +156,61 @@ const formatResponse = (res) => {
 </script>
 
 <style lang="less" scoped>
-@import url('./index.less');
+@import '@/style/variables.less';
+
+.form-basic-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--td-bg-color-container);
+  padding: 0 32px 134px;
+
+  @media (max-width: @screen-sm-max) {
+    padding: 0 32px 67px;
+
+    .form-basic-container-title {
+      margin: 32px 0 32px;
+    }
+  }
+
+  .form-basic-item {
+    width: 676px;
+
+    .form-basic-container-title {
+      font-size: 20px;
+      line-height: 24px;
+      color: var(--td-text-color-primary);
+      margin: 64px 0 32px;
+    }
+  }
+}
+
+.form-submit-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 28px;
+  background-color: var(--td-bg-color-component);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+
+  .form-submit-sub {
+    width: 676px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .form-submit-left {
+      .form-submit-upload-span {
+        font-size: 14px;
+        line-height: 22px;
+        color: var(--td-text-color-placeholder);
+        padding-top: 8px;
+        display: inline-block;
+      }
+    }
+  }
+}
 </style>
