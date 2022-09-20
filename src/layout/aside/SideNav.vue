@@ -1,6 +1,6 @@
 <template>
   <div :class="sideNavCls">
-    <t-menu :class="menuCls" :theme="theme" :value="active" :collapsed="collapsed" :default-expanded="defaultExpanded">
+    <t-menu :class="menuCls" :theme="theme" :value="active" :collapsed="collapsed">
       <template #logo>
         <span v-if="showLogo" :class="`${prefix}-side-nav-logo-wrapper`" @click="goHome">
           <component :is="getLogo()" :class="`${prefix}-side-nav-logo-${collapsed ? 't' : 'tdesign'}-logo`" />
@@ -18,13 +18,12 @@
 <script setup lang="ts">
 import { computed, onMounted, PropType } from 'vue';
 import { useRouter } from 'vue-router';
-import union from 'lodash/union';
 
 import { useSettingStore } from '@/store';
 import { prefix } from '@/config/global';
 import pgk from '../../../package.json';
 import { MenuRoute } from '@/types/interface';
-import { getActive, getRoutesExpanded } from '@/router';
+import { getActive } from '@/router';
 
 import AssetLogo from '@/assets/assets-t-logo.svg?component';
 import AssetLogoFull from '@/assets/assets-logo-full.svg?component';
@@ -62,13 +61,6 @@ const props = defineProps({
 const collapsed = computed(() => useSettingStore().isSidebarCompact);
 
 const active = computed(() => getActive());
-
-const defaultExpanded = computed(() => {
-  const path = getActive();
-  const parentPath = path.substring(0, path.lastIndexOf('/'));
-  const expanded = getRoutesExpanded();
-  return union(expanded, parentPath === '' ? [] : [parentPath]);
-});
 
 const sideNavCls = computed(() => {
   const { isCompact } = props;
@@ -118,4 +110,6 @@ const getLogo = () => {
 };
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+
+</style>

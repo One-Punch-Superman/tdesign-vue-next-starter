@@ -1,59 +1,36 @@
 <template>
-  <t-drawer
-    v-model:visible="showSettingPanel"
-    size="380px"
-    :footer="false"
-    header="页面配置"
-    :close-btn="true"
-    class="setting-drawer-container"
-    @close-btn-click="handleCloseDrawer"
-  >
+  <t-drawer v-model:visible="showSettingPanel" size="380px" :footer="false" header="页面配置" :close-btn="true"
+    class="setting-drawer-container" @close-btn-click="handleCloseDrawer">
     <div class="setting-container">
       <t-form ref="form" :data="formData" label-align="left">
         <div class="setting-group-title">主题模式</div>
         <t-radio-group v-model="formData.mode">
           <div v-for="(item, index) in MODE_OPTIONS" :key="index" class="setting-layout-drawer">
             <div>
-              <t-radio-button :key="index" :value="item.type"
-                ><component :is="getModeIcon(item.type)"
-              /></t-radio-button>
+              <t-radio-button :key="index" :value="item.type">
+                <component :is="getModeIcon(item.type)" />
+              </t-radio-button>
               <p :style="{ textAlign: 'center', marginTop: '8px' }">{{ item.text }}</p>
             </div>
           </div>
         </t-radio-group>
         <div class="setting-group-title">主题色</div>
         <t-radio-group v-model="formData.brandTheme">
-          <div
-            v-for="(item, index) in COLOR_OPTIONS.slice(0, COLOR_OPTIONS.length - 1)"
-            :key="index"
-            class="setting-layout-drawer"
-          >
+          <div v-for="(item, index) in COLOR_OPTIONS.slice(0, COLOR_OPTIONS.length - 1)" :key="index"
+            class="setting-layout-drawer">
             <t-radio-button :key="index" :value="item" class="setting-layout-color-group">
               <color-container :value="item" />
             </t-radio-button>
           </div>
           <div class="setting-layout-drawer">
-            <t-popup
-              destroy-on-close
-              expand-animation
-              placement="bottom-right"
-              trigger="click"
-              :visible="isColoPickerDisplay"
-              :overlay-style="{ padding: 0 }"
-              @visible-change="onPopupVisibleChange"
-            >
+            <t-popup destroy-on-close expand-animation placement="bottom-right" trigger="click"
+              :visible="isColoPickerDisplay" :overlay-style="{ padding: 0 }" @visible-change="onPopupVisibleChange">
               <template #content>
-                <t-color-picker-panel
-                  :on-change="changeColor"
-                  :color-modes="['monochrome']"
-                  format="HEX"
-                  :swatch-colors="[]"
-                />
+                <t-color-picker-panel :on-change="changeColor" :color-modes="['monochrome']" format="HEX"
+                  :swatch-colors="[]" />
               </template>
-              <t-radio-button
-                :value="COLOR_OPTIONS[COLOR_OPTIONS.length - 1]"
-                class="setting-layout-color-group dynamic-color-btn"
-              >
+              <t-radio-button :value="COLOR_OPTIONS[COLOR_OPTIONS.length - 1]"
+                class="setting-layout-color-group dynamic-color-btn">
                 <color-container :value="COLOR_OPTIONS[COLOR_OPTIONS.length - 1]" />
               </t-radio-button>
             </t-popup>
@@ -85,7 +62,7 @@
         </t-form-item>
       </t-form>
       <div class="setting-info">
-        <p>请复制后手动修改配置文件: /src/config/style.ts</p>
+        <p>请复制后手动修改配置文件: /src/config/setting.ts</p>
         <t-button theme="primary" variant="text" @click="handleCopy"> 复制配置项 </t-button>
       </div>
     </div>
@@ -101,7 +78,7 @@ import { useSettingStore } from '@/store';
 import Thumbnail from '@/components/thumbnail/index.vue';
 import ColorContainer from '@/components/color/index.vue';
 
-import STYLE_CONFIG from '@/config/style';
+import STYLE_CONFIG from '@/config/setting';
 import { insertThemeStylesheet, generateColorMap } from '@/config/color';
 
 import SettingDarkIcon from '@/assets/assets-setting-dark.svg';
@@ -241,7 +218,7 @@ watchEffect(() => {
   padding: 6px !important;
   border: 2px solid transparent !important;
 
-  > .t-radio-button__label {
+  >.t-radio-button__label {
     display: inline-flex;
   }
 }
@@ -286,6 +263,7 @@ watchEffect(() => {
   .setting-container {
     padding-bottom: 100px;
   }
+
   :deep(.t-radio-group.t-size-m) {
     min-height: 32px;
     width: 100%;
@@ -309,7 +287,8 @@ watchEffect(() => {
       padding: 8px;
       border-radius: @border-radius;
       border: 2px solid #e3e6eb;
-      > .t-radio-button__label {
+
+      >.t-radio-button__label {
         display: inline-flex;
       }
     }

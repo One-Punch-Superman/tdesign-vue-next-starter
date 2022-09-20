@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import keys from 'lodash/keys';
 import { COLOR_TOKEN, LIGHT_CHART_COLORS, DARK_CHART_COLORS, TColorSeries } from '@/config/color';
-import STYLE_CONFIG from '@/config/style';
+import STYLE_CONFIG from '@/config/setting';
 import { store } from '@/store';
 
 const state = {

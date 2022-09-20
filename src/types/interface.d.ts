@@ -1,14 +1,14 @@
 import { RouteRecordName, LocationQueryRaw } from 'vue-router';
-import STYLE_CONFIG from '@/config/style';
+import STYLE_CONFIG from '@/config/setting';
 
 export interface MenuRoute {
   path: string;
   title?: string;
   icon?:
-    | string
-    | {
-        render: () => void;
-      };
+  | string
+  | {
+    render: () => void;
+  };
   redirect?: string;
   children: MenuRoute[];
   meta: any;

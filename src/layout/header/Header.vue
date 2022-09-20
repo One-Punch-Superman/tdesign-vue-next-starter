@@ -280,7 +280,6 @@ const navToHelper = () => {
 
 :deep(.t-head-menu__inner) {
   border-bottom: 1px solid var(--td-border-level-1-color);
-  border-left: 1px solid var(--td-border-level-1-color);
 }
 
 .t-menu--light {
@@ -292,7 +291,6 @@ const navToHelper = () => {
 .t-menu--dark {
   .t-head-menu__inner {
     border-bottom: 1px solid var(--td-gray-color-10);
-    border-left: 1px solid var(--td-gray-color-10);
   }
 
   .header-user-account {
